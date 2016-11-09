@@ -7,24 +7,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.com.jonyfs.Scene1Controller">
-    <stylesheets>
-        <URL value="@scene1.css" />
-    </stylesheets>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TabPane prefHeight="351.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Untitled Tab 1">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-          <Tab text="Untitled Tab 2">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-        </tabs>
-      </TabPane>
+      <ListView prefHeight="339.0" prefWidth="600.0" />
+      <Button layoutX="549.0" layoutY="359.0" mnemonicParsing="false" text="OK" />
+      <DatePicker layoutX="14.0" layoutY="29.0" />
+      <RadioButton layoutX="14.0" layoutY="79.0" mnemonicParsing="false" text="RadioButton" />
+      <Slider layoutX="549.0" layoutY="26.0" orientation="VERTICAL" />
+      <Slider layoutX="393.0" layoutY="35.0" />
+      <ToggleButton layoutX="431.0" layoutY="112.0" mnemonicParsing="false" text="ToggleButton" />
+      <TextArea layoutX="13.0" layoutY="104.0" prefHeight="200.0" prefWidth="200.0" />
+      <ComboBox layoutX="383.0" layoutY="170.0" prefWidth="150.0" />
    </children>
-</AnchorPane>
+</Pane>

@@ -5,6 +5,7 @@
  */
 package br.com.jonyfs;
 
+import java.awt.TrayIcon;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
@@ -44,15 +45,6 @@ public class JavaFXTrayIconApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        /*
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show();
-         */
-
         // stores a reference to the stage.
         this.stage = stage;
 
@@ -68,7 +60,6 @@ public class JavaFXTrayIconApplication extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("Scene1.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.show();
             // stores a reference to the stage.
             this.stage = stage;
             showStage();
@@ -82,7 +73,6 @@ public class JavaFXTrayIconApplication extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("Scene2.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.show();
             // stores a reference to the stage.
             this.stage = stage;
             showStage();
@@ -126,7 +116,7 @@ public class JavaFXTrayIconApplication extends Application {
 
             // show the scene1 stage.
             java.awt.MenuItem scene2Item = new java.awt.MenuItem("Scene 2");
-            scene1Item.addActionListener(event -> Platform.runLater(this::showScene2));
+            scene2Item.addActionListener(event -> Platform.runLater(this::showScene2));
 
             // the convention for tray icons seems to be to set the default icon for opening
             // the application stage in a bold font.
@@ -152,6 +142,24 @@ public class JavaFXTrayIconApplication extends Application {
             popup.addSeparator();
             popup.add(exitItem);
             trayIcon.setPopupMenu(popup);
+
+// create a timer which periodically displays a notification message.
+            notificationTimer.schedule(
+                    new TimerTask() {
+                @Override
+                public void run() {
+                    javax.swing.SwingUtilities.invokeLater(()
+                            -> trayIcon.displayMessage(
+                                    "App Sample Started",
+                                    "The time is now " + timeFormat.format(new Date()),
+                                    java.awt.TrayIcon.MessageType.INFO
+                            )
+                    );
+                }
+            },
+                    5_000,
+                    60_000
+            );
 
             // add the application tray icon to the system tray.
             tray.add(trayIcon);
