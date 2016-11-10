@@ -32,7 +32,7 @@ public class JavaFXTrayIconApplication extends Application {
     // one icon location is shared between the application tray icon and task bar icon.
     // you could also use multiple icons to allow for clean display of tray icons on hi-dpi devices.
     private static final String iconImageLoc
-            = "http://icons.iconarchive.com/icons/custom-icon-design/flatastic-11/128/Laptop-wifi-icon.png";
+            = "http://icons.iconarchive.com/icons/custom-icon-design/flatastic-11/16/Laptop-wifi-icon.png";
 
     // application stage is stored so that it can be shown and hidden based on system tray icon operations.
     private Stage stage;
